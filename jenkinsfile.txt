@@ -4,7 +4,7 @@ pipeline {
         stage('Build') { 
             steps {
 	withMaven(maven : 'Maven'){
-		sh ' compile'
+		sh 'mvn  compile'
 	}
                 
             }
@@ -12,13 +12,13 @@ pipeline {
         stage('Test') { 
             steps {
                 withMaven(maven : 'Maven'){
-		sh ' test'
+		sh 'mvn  test'
             }
         }
         stage('Deploy') { 
             steps {
                 withMaven(maven : 'Maven'){
-		sh ' deploy'
+		sh 'mvn  deploy'
 	}
             }
         }
