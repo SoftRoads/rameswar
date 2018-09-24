@@ -3,17 +3,23 @@ pipeline {
     stages {
         stage('Build') { 
             steps {
+	withMaven(maven : 'Maven'){
+		sh ' compile'
+	}
                 
             }
         }
         stage('Test') { 
             steps {
-                
+                withMaven(maven : 'Maven'){
+		sh ' test'
             }
         }
         stage('Deploy') { 
             steps {
-                
+                withMaven(maven : 'Maven'){
+		sh ' deploy'
+	}
             }
         }
     }
