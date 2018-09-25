@@ -1,0 +1,35 @@
+<html>
+<head>
+
+<script>
+function checkOther()
+{
+	if(document.getElementById("others").checked)
+	{
+		document.getElementById("othertext").disabled=false;
+	}
+}
+function display()
+{
+	var elements=document.frm.elements;
+	for(var index in elements)
+	{
+		if(elements[index].type=="text" || document.getElementByName("hobbies").checked)
+		{
+			document.getElementById("details").innerHTML+=elements[index].name+":"+elements[index].value+"<br>";
+		}
+	}
+}
+</script>
+</head>
+<body>
+<form name="frm">
+Name: <input type="text" name="Name"><br>
+Program:<input type="radio" name="MBA(IT)" value="MBA(IT)">MBA(IT)<input type="radio" name="MSc(CA)" value="MSc(CA)">MSC(CA)<br>
+Hobbies:<br><input type="checkbox" name="hobbies" value="Reading" >Reading<br><input type="checkbox" name="hobbies" value="Sports">Sports<br><input type="checkbox" name="hobbies" value="Dance">Dance<br><input type="checkbox"name="hobbies" value="Music">Music<br><input type="checkbox" id="others" value="others" onclick="checkOther()">Others<br>
+<input type="text" id="othertext" disabled=true>
+<input type="button" value="SAVE" onclick="display()">
+</form>
+<span id="details"></span>
+</body>
+</html>
